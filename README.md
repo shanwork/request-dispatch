@@ -37,9 +37,9 @@ The implementation is intended
       ]
      }
     
-   #### Order mode - telephonic, in person,  online  - reference data   
+#### Order mode - telephonic, in person,  online  - reference data   
     
-   #### Food type - reference data
+#### Food type - reference data
        one or more of 
        a. Vegan - pure veg, no milk
        b. Jain vegetarian - veg, milk possible, no onion or garlic
@@ -51,18 +51,18 @@ The implementation is intended
        h. regular - other red meat
        i regular - poultry
 
-   #### Order status
+#### Order status
        - order registered, order processing, order ready, order despatched, order delivered, order picked up
          order served
 
-  ### Entry, Processing, Semistatic data
+### Entry, Processing, Semistatic data
 
-    ### Delivery resources - reference data - the list remains constant, status changes
+#### Delivery resources - reference data - the list remains constant, status changes
        Name,
        vehicle
        Status: despatched, break, buffer, available
 
-    #### Order queue
+#### Order queue
        Order Id
        Name,
        address,
@@ -77,22 +77,23 @@ The implementation is intended
        timeOfDeliverance
        Notes 
 
-  ## Activity
-   ### Static/Semi static Data entry
+## Activity
+
+### Static/Semi static Data entry
       create flow later. Manual entry
-   ### Place Order Page
+### Place Order Page
       page will have two sections
-      #### Chose item, and click 'Add'
+ #### Chose item, and click 'Add'
       use the tree structure implemented for Roche!!!!
-      #### Shopping cart. 
+ #### Shopping cart. 
       Sort, search, edit quantity, delete
-      ##### click Submit
-      ##### Order gets added to order queue with status 'registered'
-      ##### set interval to check status 
+ * click Submit
+ * Order gets added to order queue with status 'registered'
+ * set interval to check status 
    
-  ### Order Processing page
+### Order Processing page
     Three sections
-    #### Incoming orders
-    #### Orders ready for deliverance
-    #### Orders in various stages of deliverance
+ #### Incoming orders
+ #### Orders ready for deliverance
+ #### Orders in various stages of deliverance
 
