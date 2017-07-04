@@ -56,10 +56,11 @@ The implementation is intended
          order served
 
   ### Entry, Processing, Semistatic data
+
     #### Delivery resources - reference data - the list remains constant, status changes
        Name,
        vehicle
-       Status = despatched, break, buffer, available
+       Status: despatched, break, buffer, available
 
     #### Order queue
        Order Id
