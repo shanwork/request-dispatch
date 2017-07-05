@@ -1,0 +1,61 @@
+<div>
+DATA ENTRY {{level1.name}} {{neta}}
+<input type="text" name="level1" list="level1List" ng-model="level1Name" ng-change='changeSuite($index)'>
+<datalist id="level1List"  >
+     <option ng-repeat="level1Obj in staticData" value="{{level1Obj.level1Name}}">
+</datalist>
+<input type="text" name="level2Data" list="level2List" ng-model="level2Name" ng-change='changeTests($index)'>
+<datalist id="level2List"  >
+     <option ng-repeat="level2Obj in level2Data" value="{{level2Obj.suiteName}}">
+</datalist>
+<input type="text" name="itemSelect" list="itemList" ng-model="itemName" style="width:500px">
+<datalist id="itemList"  >
+     <option ng-repeat="itemObj in items" value="{{itemObj.name}}">
+</datalist>
+<br/>
+<select id="level1List"  ng-model="level1Name" ng-change='changeSuite($index)'>
+     <option ng-repeat="level1Obj in staticData" value="{{level1Obj.level1Name}}">{{level1Obj.level1Name}}</option>
+</select>
+<select id="level2List" ng-model="level2Name" ng-change='changeTests($index)' >
+     <option ng-repeat="level2Obj in level2Data track by $index" value="{{level2Obj.level2Name}}">{{level2Obj.level2Name}}</option>
+</select>
+<select id="itemSelect"  ng-model="itemName" ng-change='selectItem("1") '  >
+     <option ng-repeat="itemObj in items track by $index" value="{{itemObj.itemName}}">{{itemObj.itemName}}</option>
+</select>
+<div ng-repeat='size in selectedItem.sizes'>{{selectedItem.itemName}}
+    <checkbox >{{size.unit}}, cost {{size.cost}}</checkbox>
+</div>
+<div  ng-model='selectedItem' ng-show='selectedItem'>
+  <label >{{selectedItem.itemName}}</label>&nbsp;
+  <label >{{selectedItem.costPrice}}</label>
+  <label for="quantity">Enter Quantity</label><input id="itemQuantity" type="number" ng-model="addedItemQuantity">
+  <button id="addToCard" ng-click="addToCart()" value="Add to cart">Add to card</button>  
+</div>
+<hr />
+    <h4>Cart</h4>
+<table border=2>
+   <tr>
+     <th>Item</th> 
+     <th>SKU</th> 
+     <th>Unit Price</th> 
+     <th>Quantity</th> 
+     <th>Total Cost</th> 
+   </tr>
+   <tr ng-repeat="cartItem in shoppingCart">
+      <td>{{cartItem.name}}</td> 
+     <td>{{cartItem.sku}}</td> 
+     <td>{{cartItem.unitCost}}</td> 
+     <td>{{cartItem.quantity}}</td> 
+     <td>{{cartItem.totalItemCost}}</td> 
+   
+    </tr>
+     <tr>
+     <th>&nbsp;</th> 
+     <th>&nbsp;</th> 
+     <th>&nbsp;</th> 
+     <th>Items {{totalItems}}</th> 
+     <th>Total Cost {{totalCosts}}</th> 
+   </tr>
+   
+</table>
+</div>

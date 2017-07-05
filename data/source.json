@@ -60,30 +60,30 @@ var menu = [
                 [ {
                     unit: '8 inch personal',
                     cost: 5.99,
-                    prep: 60:00 // secs      
+                    prep: 60.00     
                     }, 
                     {
                         unit: '12 inch small',
                         cost: 7.99,
-                        prep: 90:00 // secs 
+                        prep: 90.00 // secs 
 
                     }, 
                     {
                         unit: '14 inch medium',
                         cost: 9.99,
-                        prep: 120:00 // secs 
+                        prep: 120.00 // secs 
 
                     }, 
                     {
                         unit: '16 inch large',
                         cost: 11.99,
-                        prep: 150:00 // secs 
+                        prep: 150.00 // secs 
 
                     }, 
                     {
                         unit: '20 inch super',
                         cost: 12.99,
-                        prep: 170:00 // secs 
+                        prep: 170.00 // secs 
 
                     }
                 ]
@@ -95,30 +95,30 @@ var menu = [
                 [ {
                     unit: '8 inch personal',
                     cost: 7.99,
-                    prep: 120:00 // secs      
+                    prep: 120.00 // secs      
                     }, 
                     {
                         unit: '12 inch small',
                         cost: 12.99,
-                        prep: 180:00 // secs 
+                        prep: 180.00 // secs 
 
                     }, 
                     {
                         unit: '14 inch medium',
                         cost: 14.99,
-                        prep: 220:00 // secs 
+                        prep: 220.00 // secs 
 
                     }, 
                     {
                         unit: '16 inch large',
                         cost: 16.99,
-                        prep: 250:00 // secs 
+                        prep: 250.00 // secs 
 
                     }, 
                     {
                         unit: '20 inch super',
                         cost: 17.99,
-                        prep: 180:00 // secs 
+                        prep: 180.00 // secs 
 
                     }
                 ]
@@ -130,30 +130,30 @@ var menu = [
                 [ {
                     unit: '8 inch personal',
                     cost: 7.99,
-                    prep: 120:00 // secs      
+                    prep: 120.00 // secs      
                     }, 
                     {
                         unit: '12 inch small',
                         cost: 12.99,
-                        prep: 180:00 // secs 
+                        prep: 180.00 // secs 
 
                     }, 
                     {
                         unit: '14 inch medium',
                         cost: 14.99,
-                        prep: 220:00 // secs 
+                        prep: 220.00 // secs 
 
                     }, 
                     {
                         unit: '16 inch large',
                         cost: 16.99,
-                        prep: 250:00 // secs 
+                        prep: 250.00 // secs 
 
                     }, 
                     {
                         unit: '20 inch super',
                         cost: 17.99,
-                        prep: 180:00 // secs 
+                        prep: 180.00 // secs 
 
                     }
                 ]
@@ -165,30 +165,30 @@ var menu = [
                 [ {
                     unit: '8 inch personal',
                     cost: 7.99,
-                    prep: 120:00 // secs      
+                    prep: 120.00 // secs      
                     }, 
                     {
                         unit: '12 inch small',
                         cost: 12.99,
-                        prep: 180:00 // secs 
+                        prep: 180.00 // secs 
 
                     }, 
                     {
                         unit: '14 inch medium',
                         cost: 14.99,
-                        prep: 220:00 // secs 
+                        prep: 220.00 // secs 
 
                     }, 
                     {
                         unit: '16 inch large',
                         cost: 16.99,
-                        prep: 250:00 // secs 
+                        prep: 250.00 // secs 
 
                     }, 
                     {
                         unit: '20 inch super',
                         cost: 17.99,
-                        prep: 180:00 // secs 
+                        prep: 180.00 // secs 
 
                     }
                 ]
@@ -207,30 +207,30 @@ var menu = [
                 [ {
                     unit: '8 inch personal',
                     cost: 9.99,
-                    prep: 110:00 // secs      
+                    prep: 110.00 // secs      
                     }, 
                     {
                         unit: '12 inch small',
                         cost: 14.99,
-                        prep: 140:00 // secs 
+                        prep: 140.00 // secs 
 
                     }, 
                     {
                         unit: '14 inch medium',
                         cost: 16.99,
-                        prep: 190:00 // secs 
+                        prep: 190.00 // secs 
 
                     }, 
                     {
                         unit: '16 inch large',
                         cost: 18.99,
-                        prep: 200:00 // secs 
+                        prep: 200.00 // secs 
 
                     }, 
                     {
                         unit: '20 inch super',
                         cost: 20.99,
-                        prep: 210:00 // secs 
+                        prep: 210.00 // secs 
 
                     }
                 ]
@@ -242,30 +242,30 @@ var menu = [
                 [ {
                     unit: '8 inch personal',
                     cost: 7.99,
-                    prep: 120:00 // secs      
+                    prep: 120.00 // secs      
                     }, 
                     {
                         unit: '12 inch small',
                         cost: 12.99,
-                        prep: 180:00 // secs 
+                        prep: 180.00 // secs 
 
                     }, 
                     {
                         unit: '14 inch medium',
                         cost: 14.99,
-                        prep: 220:00 // secs 
+                        prep: 220.00 // secs 
 
                     }, 
                     {
                         unit: '16 inch large',
                         cost: 16.99,
-                        prep: 250:00 // secs 
+                        prep: 250.00 // secs 
 
                     }, 
                     {
                         unit: '20 inch super',
                         cost: 17.99,
-                        prep: 180:00 // secs 
+                        prep: 180.00 // secs 
 
                     }
                 ]
@@ -291,18 +291,18 @@ var menu = [
                 [ {
                     unit: 'small',
                     cost: 1.50,
-                    prep: 120:00 // secs      
+                    prep: 120.00 // secs      
                     }, 
                     {
                         unit: 'medium',
                         cost: 2.50,
-                        prep: 180:00 // secs 
+                        prep: 180.00 // secs 
 
                     }, 
                     {
                         unit: 'large',
                         cost: 3.00,
-                        prep: 220:00 // secs 
+                        prep: 220.00 // secs 
 
                     }
                 ]
@@ -314,18 +314,18 @@ var menu = [
                 [ {
                     unit: 'small',
                     cost: 1.75,
-                    prep: 120:00 // secs      
+                    prep: 120.00 // secs      
                     }, 
                     {
                         unit: 'medium',
                         cost: 2.75,
-                        prep: 180:00 // secs 
+                        prep: 180.00 // secs 
 
                     }, 
                     {
                         unit: 'large',
                         cost: 3.25,
-                        prep: 220:00 // secs 
+                        prep: 220.00 // secs 
 
                     }
                 ]
@@ -337,18 +337,18 @@ var menu = [
                 [ {
                     unit: 'small',
                     cost: 1.50,
-                    prep: 120:00 // secs      
+                    prep: 120.00 // secs      
                     }, 
                     {
                         unit: 'medium',
                         cost: 2.50,
-                        prep: 180:00 // secs 
+                        prep: 180.00 // secs 
 
                     }, 
                     {
                         unit: 'large',
                         cost: 3.00,
-                        prep: 220:00 // secs 
+                        prep: 220.00 // secs 
 
                     }
                 ]
@@ -362,7 +362,7 @@ var menu = [
             {
            itemName: 'Coffee/ Tea',
            foodType: [ 'green'],
-           decription: 'Pete\'s regular, decaf, Lipton Tea bags - regular/ decaf,
+           decription: 'Pete\'s regular, decaf, Lipton Tea bags - regular/ decaf',
            sizes:
                 [ {
                     unit: '8 oz',

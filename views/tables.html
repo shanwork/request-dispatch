@@ -1,0 +1,249 @@
+ <div class="row row-with-decor">
+      <div class="col-lg-2">
+      <span style="margin:3px;padding:3px;background-color:lightgreen; border:2px inset;border-radius:2px;margin-top:10px" ng-click="toggle=!toggle" ng-hide="toggle">Show Tabulated Data</span>
+      <span style="margin:3px;padding:3px;background-color:orange; border:2px outset;border-radius:2px;margin-top:100px" ng-click="toggle=!toggle" ng-show="toggle">Show raw JSON</span>
+    </div>
+      <div  class="col-lg-10" ng-show="toggle">
+      <span style="margin:3px;padding:3px;background-color:skyBlue; border:2px outset;border-radius:2px;margin-top:100px" ng-click='toAdd=false' ng-show="toAdd">Show Add Form</span>
+      <span style="margin:3px;padding:3px;background-color:lightGray; border:2px outset;border-radius:2px;margin-top:100px" ng-click='toAdd=true' ng-hide="toAdd">Hide Add Form</span>
+      <span style="margin:3px;padding:3px;background-color:skyBlue; border:2px outset;border-radius:2px;margin-top:100px" ng-click='showAllTable=!showAllTable' >Show/Hide All Data</span>
+      <span style="margin:3px;padding:3px;background-color:lightGray; border:2px outset;border-radius:2px;margin-top:100px" ng-click='showSummaryTable=!showSummaryTable' >Show/Hide Build Summary</span>
+      <span style="margin:3px;padding:3px;background-color:lightGray; border:2px outset;border-radius:2px;margin-top:100px" ng-click='showLevelErrors=!showLevelErrors' >Show/Hide Level error stats</span>
+      <span style="margin:3px;padding:3px;background-color:lightGray; border:2px outset;border-radius:2px;margin-top:100px" ng-click='showGraph=!showGraph' >Show/Hide graph area</span>
+      <span style="margin:3px;padding:3px;background-color:lightGray; border:2px outset;border-radius:2px;margin-top:100px" ng-click='saveChanges()' >Save JSON</span>
+    </div>
+  </div>
+      <div role="main"   ng-show="toggle" >
+      <div class="row">
+        <h4 ng-click="showStatus=!showStatus">Show Status, progress, pending</h4>
+        <ul  ng-show="showStatus">
+          <li class='wip'> Data collection, classification - show json on screen, copy paste into js object
+          <li> Raw data table, sort, filter, page
+          <li> Error categorizations over time
+          <li> Table representation of above
+          <li> Graph representation of all
+          <li> 'Fancying' presentation
+
+        </ul>
+      </div>
+      <div style="background-color:#FFEEEA;border: 2px solid yellow;width:100%">
+        <div  class="col-lg-12" >
+
+                    <div  class="bs-component" >
+                      <div class="row">
+
+                     <div ng-hide='toAdd' style="border: 2px solid silver; padding:5px; margin:5px">
+                        <label >build #</label>&nbsp;<input type="text" ng-model="build">&nbsp;&nbsp;
+                        <label >git change</label>&nbsp;<input type="text" ng-model="gitChange">&nbsp;&nbsp;
+                        <label >build notes </label>&nbsp;<textarea style="width:500px;vertical-align:top"  ng-model="buildNotes"></textarea>
+                        <br/>
+                        <hr style="color:gray;width:100%"/>
+                        <label >Segment of Day </label>&nbsp;
+                        <select ng-model="buildSegnentOfDay">
+                          <option value="n.a."> n.a.</option>
+                          <option value="early"> early (< 7:00 AM)</option>
+                          <option value="before hours"> before hours (< 9:00 AM)</option>
+                          <option value="morning"> morning (< 11:00 AM)</option>
+                          <option value="late morning"> late morning (< 12:00 AM)</option>
+                          <option value="noon - early afternoon"> noon - early afternoo (< 2:00 PM)</option>
+                          <option value="late afternoon"> late afternoon (< 5:00 PM)</option>
+                          <option value="after hours"> after hours (< 8:00 PM)</option>
+                          <option value="late"> late (< 12:00 AM)</option>
+                        </select>&nbsp;&nbsp;
+                        <label >build command line</label>&nbsp;<input type="text" style="width:500px;vertical-align:top" ng-model="buildCommandLine">
+
+                        <br/>
+                        <hr style="color:gray;width:100%"/>
+                            <label >time</label ><input type="text" ng-model="time">&nbsp;&nbsp;
+                            <label >suite:</label ><input type="text" ng-model="suite">&nbsp;&nbsp;
+                            <label >test:</label ><input type="text" ng-model="test">&nbsp;&nbsp;
+                            <label >Sub :</label ><input type="text" ng-model="subTest">
+                            <label >browsers:</label ><input type="text" ng-model="browsersFailing">
+                        <br/>
+                              <label >error:</label ><input type="text" style="width:500px;" ng-model="error">&nbsp;&nbsp;&nbsp;
+                              <br/>
+                              <label >error type:</label >
+                              <input type="text" name="example" list="errorTypeList" ng-model="errorClass">
+                              <datalist id="errorTypeList" >
+                                  <option ng-repeat="errorType in errorLookups" value="{{errorType}}">
+                              </datalist>
+                        <br/>
+                        <label >level5:</label ><input type="text" ng-model="level5">&nbsp;&nbsp;
+                        <label >level4: </label ><input type="text" ng-model="level4">&nbsp;&nbsp;
+                        <label >level3: </label ><input type="text" ng-model="level3">&nbsp;&nbsp;
+                        <label >level2: </label ><input type="text" ng-model="level2">&nbsp;&nbsp;
+                        <label >level1: </label ><input type="text" ng-model="level1">&nbsp;&nbsp;
+                        <button ng-click="addregressionError()">Add</button>
+                        <button ng-click="toAdd=true">Cancel</button>
+                      </div><!-- add form -->
+                      </div>
+                    </div>
+                      <div  class="col-lg-12" ng-show="showAllTable">
+                        <div  class="col-lg-12"  ng-show="showSummaryTable">
+                          <h3>Build Summaries: Total  {{totalSummaryRecords}}</h3>
+                          <table class="table table-striped table-hover" style="background-color:lightblue;border: 2px inset slateblue">
+                               <thead>
+                                   <tr>
+                                     <th ng-click="sort('build')">Build</th>
+                                     <th ng-click="sort('count')">Errors </th>
+                                    <th ng-click="sort('segmentOfDay')">Time of Day </th>
+                                       <th ng-click="sort('buildNotes')">Notes</th>
+                                       <th ng-click="sort('buildCommandLine')">Command Line </th>
+                                       <th ng-click="sort('browsersFailing')">Browsers</th>
+
+                                   </tr>
+                               </thead>
+                               <tbody>
+                                   <tr ng-repeat="buildSummary in regressionErrors|orderBy:sortKey:reverse|filter:search" >
+                                     <td>{{buildSummary.buildId}}</td>
+                                     <td>{{buildSummary.errorList.length}}</td>
+                                     <td>{{buildSummary.segmentOfDay}}</td>
+                                       <td>{{buildSummary.buildNotes}}</td>
+                                       <td>{{buildSummary.buildCommandLine}}</td>
+                                       <td>{{buildSummary.browsersFailing}}</td>
+
+                                   </tr>
+                               </tbody>
+                           </table>
+                        </div>
+                        <h2>All Errors, total {{totalErrorRecords}} </h2>
+                        <form class="form-inline">
+                          <label >Search</label>&nbsp;&nbsp;<input type="text" ng-model="search" class="form-control" placeholder="Search">
+                       </form>
+                      <table class="table table-striped table-hover" style="background-color:beige;border: 2px solid yellow;width:100%">
+                           <thead>
+                               <tr>
+                                   <th ng-click="sort('buildId')">build</th>
+                                   <th ng-click="sort('suite')">suite:</th>
+                                   <th ng-click="sort('test')">test:</th>
+                                   <th ng-click="sort('subTest')">sub</th>
+                                   <th ng-click="sort('errorClass')">error class</th>
+                                   <th ng-click="sort('error')">error</th>
+                                   <th ng-click="sort('level5')">level5:</th>
+                                   <th ng-click="sort('level4')">level4: </th>
+                                   <th ng-click="sort('level3')">level3: </th>
+                                   <th ng-click="sort('level2')">level2: </th>
+                                   <th ng-click="sort('level1')">level1: </th>
+                               </tr>
+                           </thead>
+                           <tbody>
+                               <tr ng-repeat="error in regressionErrorList|orderBy:sortKey:reverse|filter:search track by $index">
+                                   <td >{{error.buildId}}</td>
+                                   <td >{{error.suite}}</td>
+                                   <td>{{error.test}}</td>
+                                   <td>{{error.subTest}}</td>
+                                   <td>{{error.errorClass}}</td>
+                                   <td>{{error.error}}</td>
+                                   <td>{{error.level5}}</td>
+                                   <td>{{error.level4}}</td>
+                                   <td>{{error.level3}}</td>
+                                   <td>{{error.level2}}</td>
+                                   <td>{{error.level1}}</td>
+
+                               </tr>
+                           </tbody>
+                       </table>
+                    </div>
+              </div>
+
+              <div ng-show="showLevelErrors"> <!-- level errors -->
+              <div class='row'>
+                     <div class="col-lg-6" >
+                       <table class="table table-striped table-hover" style="background-color:beige;border: 2px solid yellow">
+                            <thead>
+                                <tr>
+                                  <th ng-click="sort('build')">Build</th>
+                                  <th ng-click="sort('field')">Error</th>
+                                    <th ng-click="sort('count')">Count</th>
+
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr ng-repeat="error in errorTypes|orderBy:sortKey:reverse|filter:search">
+                                  <td>{{error.build}}</td>
+                                  <td>{{error.field}}</td>
+                                    <td>{{error.count}}</td>
+
+                                </tr>
+                            </tbody>
+                        </table>
+                      </div>
+                      <div class="col-lg-6" >
+                        <table class="table table-striped table-hover" style="background-color:beige;border: 2px solid yellow">
+                             <thead>
+                                 <tr>
+                                   <th ng-click="sort('build')">Build</th>
+                                   <th ng-click="sort('field')">Level1 </th>
+                                     <th ng-click="sort('count')">Count</th>
+
+                                 </tr>
+                             </thead>
+                             <tbody>
+                                 <tr ng-repeat="error in level1Errors|orderBy:sortKey:reverse|filter:search">
+                                   <td>{{error.build}}</td>
+                                   <td>{{error.field}}</td>
+                                     <td>{{error.count}}</td>
+
+                                 </tr>
+                             </tbody>
+                         </table>
+                       </div>
+            </div>
+
+            <div class='row'>
+                   <div class="col-lg-6" >
+                     <table class="table table-striped table-hover" style="background-color:beige;border: 2px solid yellow">
+                          <thead>
+                              <tr>
+                                <th ng-click="sort('build')">Build</th>
+                                <th ng-click="sort('field')">Level 2</th>
+                                  <th ng-click="sort('count')">Count</th>
+
+                              </tr>
+                          </thead>
+                          <tbody>
+                              <tr ng-repeat="error in level2Errors|orderBy:sortKey:reverse|filter:search">
+                                <td>{{error.build}}</td>
+                                <td>{{error.field}}</td>
+                                  <td>{{error.count}}</td>
+
+                              </tr>
+                          </tbody>
+                      </table>
+                    </div>
+                    <div class="col-lg-6" >
+                      <table class="table table-striped table-hover" style="background-color:beige;border: 2px solid yellow">
+                           <thead>
+                               <tr>
+                                 <th ng-click="sort('build')">Build</th>
+                                 <th ng-click="sort('field')">Level3 </th>
+                                   <th ng-click="sort('count')">Count</th>
+
+                               </tr>
+                           </thead>
+                           <tbody>
+                               <tr ng-repeat="error in level3Errors|orderBy:sortKey:reverse|filter:search">
+                                 <td>{{error.build}}</td>
+                                 <td>{{error.field}}</td>
+                                   <td>{{error.count}}</td>
+
+                               </tr>
+                           </tbody>
+                       </table>
+                     </div>
+          </div> <!-- level 2, level 3-->
+        </div>
+        <div ng-show="showGraph"> <!-- graph area -->
+          <div class="col-lg-6" >
+             <nvd3 options='options' data='errorTypeData' style="display:block"></nvd3>
+          </div>
+          <div class="col-lg-6" >
+             <nvd3 options='options' data='level1Data' style="display:block"></nvd3>
+          </div>
+        </div> <!-- graph area -->
+                    </div>
+                </div>
+      </div>
+    </div>
+    <div ng-hide="toggle" style="margin-top:10px"  ng-repeat ="declareStatement in showJson() track by $index">{{declareStatement}}</div>
+ 
