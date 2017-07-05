@@ -9,16 +9,15 @@ The implementation is intended
    ## Data Model
    ### Reference / Static Data 
    #### Menu  
-     { 
-      Categories: [
+     let menu=  [
       { 
-        CategoryName: string
-        Subcategories: [ // some items do not need 
+        level1Name: string
+        level2: [ // some items do not need 
           { 
-             SubCategoryName: string
-             Items: [
+             level2Name: string
+             items: [
                 { 
-                  Item name: string
+                  itemName: string
                   Food type: [..]
                   ingredients: comma separated string - no need for array at this stage *
                   quantities 

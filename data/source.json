@@ -1,0 +1,417 @@
+/* 
+Contains the repo for data that is used for reference
+*/
+var foodType = [
+    {
+        name: 'vegan',
+        code: 'green',
+        description: 'pure veg, no milk'
+    },{
+        name: 'jain vegetarian',
+        code: 'lightgreen',
+        description: 'pure veg, possible milk, no onion or garlic'
+    },{
+        name: 'regular vegetarian',
+        code: 'darkgreen',
+        description: 'pure veg, possible milk, possible onion or garlic'
+    },{
+        name: 'eggetarian',
+        code: 'yellow',
+        description: 'regular vegetarian with egg'
+    },{
+        name: 'piscetarian',
+        code: 'lightBlue',
+        description: 'regular vegetarian with seafood'
+    },{
+        name: 'non vegetarian - beef',
+        code: 'maroon',
+        description: 'veggie plus named meat'
+    },{
+        name: 'non vegetarian - pork',
+        code: 'crimson',
+        description: 'veggie plus named meat'
+    },{
+        name: 'non vegetarian - other red meat',
+        code: 'brown',
+        description: 'veggie plus any other red meat like lamb, goat, venison, etc'
+    },{
+        name: 'non vegetarian - poutry',
+        code: 'orange',
+        description: 'veggie plus chicken, turkey'
+    }
+    ,{
+        name: 'non vegetarian - exotic',
+        code: 'purple',
+        description: 'veggie plus unusual meats - alligator, duck, goose, etc'
+    }
+];
+var menu = [
+  {
+    level1Name:  'Pizzas',
+    level2 : [
+      {
+        level2Name: 'Regular Pizzas',
+        items : [
+            {
+           itemName: 'Margerita',
+           foodType: [ 'lightGreen'],
+           decription: 'Plain cheese pizza',
+           sizes:
+                [ {
+                    unit: '8 inch personal',
+                    cost: 5.99,
+                    prep: 60:00 // secs      
+                    }, 
+                    {
+                        unit: '12 inch small',
+                        cost: 7.99,
+                        prep: 90:00 // secs 
+
+                    }, 
+                    {
+                        unit: '14 inch medium',
+                        cost: 9.99,
+                        prep: 120:00 // secs 
+
+                    }, 
+                    {
+                        unit: '16 inch large',
+                        cost: 11.99,
+                        prep: 150:00 // secs 
+
+                    }, 
+                    {
+                        unit: '20 inch super',
+                        cost: 12.99,
+                        prep: 170:00 // secs 
+
+                    }
+                ]
+            },{
+           itemName: 'Veggie Lovers Pizza',
+           foodType: [ 'darkGreen'],
+           decription: 'bell peppers, mushrooms, olives, tomato slices, pineapple on mozarella',
+           sizes:
+                [ {
+                    unit: '8 inch personal',
+                    cost: 7.99,
+                    prep: 120:00 // secs      
+                    }, 
+                    {
+                        unit: '12 inch small',
+                        cost: 12.99,
+                        prep: 180:00 // secs 
+
+                    }, 
+                    {
+                        unit: '14 inch medium',
+                        cost: 14.99,
+                        prep: 220:00 // secs 
+
+                    }, 
+                    {
+                        unit: '16 inch large',
+                        cost: 16.99,
+                        prep: 250:00 // secs 
+
+                    }, 
+                    {
+                        unit: '20 inch super',
+                        cost: 17.99,
+                        prep: 180:00 // secs 
+
+                    }
+                ]
+            } , {
+           itemName: 'Meat Lover\'s Pizza',
+           foodType: [ 'maroon','crimson','orange'],
+           decription: 'Pepperoni, sausage, beef topping, ham, bacon crumble, bbq chicken and pizza',
+           sizes:
+                [ {
+                    unit: '8 inch personal',
+                    cost: 7.99,
+                    prep: 120:00 // secs      
+                    }, 
+                    {
+                        unit: '12 inch small',
+                        cost: 12.99,
+                        prep: 180:00 // secs 
+
+                    }, 
+                    {
+                        unit: '14 inch medium',
+                        cost: 14.99,
+                        prep: 220:00 // secs 
+
+                    }, 
+                    {
+                        unit: '16 inch large',
+                        cost: 16.99,
+                        prep: 250:00 // secs 
+
+                    }, 
+                    {
+                        unit: '20 inch super',
+                        cost: 17.99,
+                        prep: 180:00 // secs 
+
+                    }
+                ]
+            }, {
+           itemName: 'Hawaiian Pizza',
+           foodType: [  'crimson' ],
+           decription: 'ham, canadian bacon, pineapple on mozarella',
+           sizes:
+                [ {
+                    unit: '8 inch personal',
+                    cost: 7.99,
+                    prep: 120:00 // secs      
+                    }, 
+                    {
+                        unit: '12 inch small',
+                        cost: 12.99,
+                        prep: 180:00 // secs 
+
+                    }, 
+                    {
+                        unit: '14 inch medium',
+                        cost: 14.99,
+                        prep: 220:00 // secs 
+
+                    }, 
+                    {
+                        unit: '16 inch large',
+                        cost: 16.99,
+                        prep: 250:00 // secs 
+
+                    }, 
+                    {
+                        unit: '20 inch super',
+                        cost: 17.99,
+                        prep: 180:00 // secs 
+
+                    }
+                ]
+            }
+          
+        ]
+      },
+       {
+        level2Name: 'Speciality Pizzas',
+        items : [
+            {
+           itemName: 'Paneer Tikka Masala Pizza',
+           foodType: [ 'darkgreen'],
+           decription: 'Indian curry creamy buttery tomato based with cubes of compressed cottage cheees on mozarella',
+           sizes:
+                [ {
+                    unit: '8 inch personal',
+                    cost: 9.99,
+                    prep: 110:00 // secs      
+                    }, 
+                    {
+                        unit: '12 inch small',
+                        cost: 14.99,
+                        prep: 140:00 // secs 
+
+                    }, 
+                    {
+                        unit: '14 inch medium',
+                        cost: 16.99,
+                        prep: 190:00 // secs 
+
+                    }, 
+                    {
+                        unit: '16 inch large',
+                        cost: 18.99,
+                        prep: 200:00 // secs 
+
+                    }, 
+                    {
+                        unit: '20 inch super',
+                        cost: 20.99,
+                        prep: 210:00 // secs 
+
+                    }
+                ]
+            }, {
+           itemName: 'Chicken Teriyaki Pizza',
+           foodType: [  'orange' ],
+           decription: 'chicken in teriyaki sauce with steamed brocolli on mozarella',
+           sizes:
+                [ {
+                    unit: '8 inch personal',
+                    cost: 7.99,
+                    prep: 120:00 // secs      
+                    }, 
+                    {
+                        unit: '12 inch small',
+                        cost: 12.99,
+                        prep: 180:00 // secs 
+
+                    }, 
+                    {
+                        unit: '14 inch medium',
+                        cost: 14.99,
+                        prep: 220:00 // secs 
+
+                    }, 
+                    {
+                        unit: '16 inch large',
+                        cost: 16.99,
+                        prep: 250:00 // secs 
+
+                    }, 
+                    {
+                        unit: '20 inch super',
+                        cost: 17.99,
+                        prep: 180:00 // secs 
+
+                    }
+                ]
+            }
+          
+        ]
+      },
+  
+      
+    ]
+  },
+  {
+    level1Name:  'Sides and Beverages',
+  level2 : [
+      {
+        level2Name: 'Sides',
+        items : [
+            {
+           itemName: 'Regular French Fries',
+           foodType: [ 'green', 'light green'],
+           decription: 'Fried in Vegetable oil, very lightly salted',
+           sizes:
+                [ {
+                    unit: 'small',
+                    cost: 1.50,
+                    prep: 120:00 // secs      
+                    }, 
+                    {
+                        unit: 'medium',
+                        cost: 2.50,
+                        prep: 180:00 // secs 
+
+                    }, 
+                    {
+                        unit: 'large',
+                        cost: 3.00,
+                        prep: 220:00 // secs 
+
+                    }
+                ]
+            }, {
+           itemName: 'Spicy French Fries',
+           foodType: [ 'green', 'lightGreen'],
+           decription: 'Fried in Vegetable oil, seasoned with red chilly and black pepper, very lightly salted',
+           sizes:
+                [ {
+                    unit: 'small',
+                    cost: 1.75,
+                    prep: 120:00 // secs      
+                    }, 
+                    {
+                        unit: 'medium',
+                        cost: 2.75,
+                        prep: 180:00 // secs 
+
+                    }, 
+                    {
+                        unit: 'large',
+                        cost: 3.25,
+                        prep: 220:00 // secs 
+
+                    }
+                ]
+            }, {
+           itemName: 'Garic French Fries',
+           foodType: [ 'green', 'darkGgreen'],
+           decription: 'Fried in Vegetable oil, seasoned with shredded garlic and cilantro and lemon, , very lightly salted',
+           sizes:
+                [ {
+                    unit: 'small',
+                    cost: 1.50,
+                    prep: 120:00 // secs      
+                    }, 
+                    {
+                        unit: 'medium',
+                        cost: 2.50,
+                        prep: 180:00 // secs 
+
+                    }, 
+                    {
+                        unit: 'large',
+                        cost: 3.00,
+                        prep: 220:00 // secs 
+
+                    }
+                ]
+            }
+          
+        ]
+      },
+       {
+        level2Name: 'Beverages',
+        items : [
+            {
+           itemName: 'Coffee/ Tea',
+           foodType: [ 'green'],
+           decription: 'Pete\'s regular, decaf, Lipton Tea bags - regular/ decaf,
+           sizes:
+                [ {
+                    unit: '8 oz',
+                    cost: 0.99,
+                    prep: 0 // secs      
+                    }, 
+                    {
+                        unit: '12 oz',
+                        cost: 1.25,
+                        prep: 0 // secs 
+
+                    }, 
+                    {
+                        unit: '16 oz',
+                        cost: 1.50,
+                        prep: 0 // secs 
+
+                    }
+                ]
+            }, {
+           itemName: 'pop',
+           foodType: [  'green' ],
+           decription: 'coke, pepsi, sprite, 7 up, fanta, slice, mountain dew, root beer - regular and diet',
+           sizes:
+                 [ {
+                    unit: '8 oz',
+                    cost: 1.25,
+                    prep: 0 // secs      
+                    }, 
+                    {
+                        unit: '12 oz',
+                        cost: 1.75,
+                        prep: 0 // secs 
+
+                    }, 
+                    {
+                        unit: '16 oz',
+                        cost: 1.90,
+                        prep: 0 // secs 
+
+                    }
+                ]
+            }
+          
+        ]
+      },
+  
+      
+    ]
+  
+  }
+];
