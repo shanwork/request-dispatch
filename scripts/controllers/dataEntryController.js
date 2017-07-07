@@ -4,7 +4,69 @@ angular.module('statsApp').controller('DataEntryController',function($scope, $ro
   // counts for various fields ...
  
 
-  $scope.changeSuite = function(init =false){
+  $scope.createOrder = function() {
+    $rootScope.shoppingCart=[];
+    $scope.staticData.forEach(function (level1List){
+        let level1Name =  level1List.level1Name;
+        level1List.level2.forEach( function (level2List){
+            let level2Name = level2List.level2Name;
+            level2List.items.forEach(function(itemsList){
+                let itemName = itemsList.itemName;
+                itemsList.sizes.forEach(function(size){
+                    if (!isNaN(size.quantity) && parseInt(size.quantity) > 0){
+                        var orderItem = 
+                            {
+                                name: level1Name + '> ' + level2Name + '> ' + itemName + ': ' + size.unit + ', $' + size.cost + ' each',
+                                quantity: size.quantity,
+                                totalCost: parseFloat(size.quantity) * parseFloat(size.cost)
+                            }
+                        $rootScope.addedItenQuantity += orderItem.quantity;
+                        $rootScope.totalCosts += orderItem.totalCost;
+                        $rootScope.shoppingCart.push(orderItem);
+                        
+                        
+                    }
+                });
+                
+            })
+        })
+
+    });
+     
+ //    $scope.addedItenQuantity = 0;
+ }
+ 
+  $scope.init = function (){
+      $scope.showFoodTypeLegend=true;
+      $scope.foodTypes = foodType;
+      $scope.level1index = 0;
+      $scope.level2index = 0;
+      $scope.staticData = menu;
+      $scope.level1Name =  $scope.staticData[$scope.level1index].level1Name ;
+      $scope.level1 = $scope.staticData[$scope.level1index] ;
+     // $scope.changeSuite(true) old methodology - see bulk commented section at the bottom
+       $scope.neta = String.fromCodePoint(134071)
+      if (!$rootScope.totalItems)
+          $rootScope.totalItems = 0;
+       if (!$rootScope.totalCosts)
+          $rootScope.totalCosts = 0 ;
+      $scope.addedItenQuantity = 0;
+      if (!$rootScope.shoppingCart)
+          $rootScope.shoppingCart=[];
+      
+   //   $scope.changeTests() 
+     }
+    $scope.init();
+    
+    
+    
+
+
+
+});
+/* Old methods related to drop down sequential selection and copy paste from 'template'
+
+$scope.changeSuite = function(init =false){
        let level1index = $scope.staticData.findIndex(x => x.level1Name==$scope.level1Name);
       if ((level1index >= 0  && level1index != $scope.level1index)||init==true){ 
           $scope.level1index = level1index;
@@ -12,7 +74,7 @@ angular.module('statsApp').controller('DataEntryController',function($scope, $ro
        $scope.level2Data = $scope.staticData[$scope.level1index].level2 ;
        $scope.level2Name = $scope.staticData[$scope.level1index].level2[$scope.level2index].level2Name ;
        $scope.items = $scope.staticData[$scope.level1index].level2[$scope.level2index].items ;
-       $scope.itemName = $scope.staticData[$scope.level1index].level2[$scope.level2index].items[0].name ;
+       $scope.itemName = $scope.staticData[$scope.level1index].level2[$scope.level2index].items[0].itemName ;
            $scope.selectItem()
         
       }
@@ -26,9 +88,10 @@ angular.module('statsApp').controller('DataEntryController',function($scope, $ro
           $scope.selectItem()
       }
   }
- $scope.selectItem  = function(){
-     $scope.selectedItem = $scope.items.find(x=>x.name==$scope.itemName);
-     $scope.selectedItem.name = ($scope.itemName);
+  
+     $scope.selectItem  = function(){
+     $scope.selectedItem = $scope.items.find(x=>x.itemName==$scope.itemName);
+     $scope.selectedItem.itemName = ($scope.itemName);
   }
  $scope.addToCart = function() {
      var newItem = {
@@ -46,26 +109,6 @@ angular.module('statsApp').controller('DataEntryController',function($scope, $ro
      
  //    $scope.addedItenQuantity = 0;
  }
-  $scope.init = function (){
-      
-      $scope.level1index = 0;
-      $scope.level2index = 0;
-      $scope.staticData = menu;
-      $scope.level1Name =  $scope.staticData[$scope.level1index].level1Name ;
-      $scope.level1 = $scope.staticData[$scope.level1index] ;
-      $scope.changeSuite(true) 
-       $scope.neta = String.fromCodePoint(134071)
-      if (!$rootScope.totalItems)
-          $rootScope.totalItems = 0;
-       if (!$rootScope.totalCosts)
-          $rootScope.totalCosts = 0 ;
-      $scope.addedItenQuantity = 0;
-      if (!$rootScope.shoppingCart)
-          $rootScope.shoppingCart=[];
-      
-   //   $scope.changeTests() 
-     }
-    $scope.init();
 
     $scope.showJsonIndent = function()
     {
@@ -196,6 +239,3 @@ angular.module('statsApp').controller('DataEntryController',function($scope, $ro
   $scope.init(false,true);
     }
     */
-
-
-});

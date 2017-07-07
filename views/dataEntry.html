@@ -1,5 +1,85 @@
 <div>
-DATA ENTRY {{level1.name}} {{neta}}
+<h4>Order Placement</h4>
+<div class="row">
+   <div class="col-sm-8" style="overflow:auto;">
+<table class="table table-striped" style="border: 2px gray groove;width:auto">
+<thead>
+     <tr>
+         <th><H5>MENU </H5> </th>
+     </tr>
+    </thead>   
+     <tbody>
+        <tr ng-repeat="level1Obj in staticData" >
+            <td>
+                {{level1Obj.level1Name}} 
+                <table class="table table-striped" style="border: 2px gray groove;width:auto;margin-left:10px">
+                    <tbody>
+                        <tr ng-repeat="level2Obj in level1Obj.level2 track by $index" >
+                            <td>
+                                {{level2Obj.level2Name}}
+                                <table class="table table-striped" style="border: 2px gray groove;width:auto;margin-left:10px">
+                                    <tbody>
+                                        <tr ng-repeat="item in level2Obj.items  track by $index" >
+                                            <td>
+                                                <table><tr><th>{{item.itemName}}&nbsp;&nbsp;</th><td>{{item.decription}}&nbsp;&nbsp;</td><td ng-repeat="code in item.foodType" style="background-color:{{code}};color:{{code}}">co</td></tr></table>
+                                                <table><tr ng-repeat="size in item.sizes"><th>{{size.unit}}&nbsp;&nbsp;</th><td>Cost: ${{size.cost}}&nbsp;&nbsp;</td><td> <input type="text" ng-model="size.quantity" value={{size.quantity}}></td></tr></table>
+                                            </td>
+                                            
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+         </tr>
+         <tr><td><button class="btn btn-primary" ng-click="createOrder()">Place/Update Order</button></td></tr>
+    </tbody>
+
+</table>
+    </div>
+     <div class="col-sm-4" style="overflow:auto;">
+<table class="table table-striped" style="border: 2px gray groove;width:auto">
+    <thead>
+     <tr>
+         <th><H5>FOOD GUIDE (MEAT/VEGGIE LEVEL) <button class="btn btn-primary" ng-click="showFoodTypeLegend=!showFoodTypeLegend">{{showFoodTypeLegend==true?'+':'-'}}</button></H5> </th>
+     </tr>
+    </thead>
+    <tbody ng-show=showFoodTypeLegend>
+        <tr ng-repeat="foodType in foodTypes" >
+           <td><span style="background-color:{{foodType.code}}">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;&nbsp;{{foodType.name}} -- {{foodType.description}} &nbsp;&nbsp;</td>
+        </tr>
+    </tbody>
+</table>
+<table  class="table table-striped" style="border: 2px gray groove;width:auto">
+    <thead>
+     <tr>
+         <th colspan='3'> <h5>Order</h5></th>
+        </tr>
+         <tr>
+         <th > Item</th><th>Quantity</th><th>Cost</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr ng-repeat="orderItem in shoppingCart">
+         <td>{{orderItem.name}}</td>
+         <td>{{orderItem.quantity}}</td>
+        <td>{{orderItem.totalCost}}</td>
+       </tr>
+       <tr>
+         <th>Total Items: {{addedItenQuantity}}
+         </th> 
+          <th colspan="2">Total Cost: {{totalCosts}}
+         </th> 
+       </tr>
+    </tbody>
+</table>
+    </div>
+    
+</div>
+<!-- old interface.. using sequential drop downs
+<div ng-show="false">
 <input type="text" name="level1" list="level1List" ng-model="level1Name" ng-change='changeSuite($index)'>
 <datalist id="level1List"  >
      <option ng-repeat="level1Obj in staticData" value="{{level1Obj.level1Name}}">
@@ -21,10 +101,18 @@ DATA ENTRY {{level1.name}} {{neta}}
 </select>
 <select id="itemSelect"  ng-model="itemName" ng-change='selectItem("1") '  >
      <option ng-repeat="itemObj in items track by $index" value="{{itemObj.itemName}}">{{itemObj.itemName}}</option>
-</select>
-<div ng-repeat='size in selectedItem.sizes'>{{selectedItem.itemName}}
-    <checkbox >{{size.unit}}, cost {{size.cost}}</checkbox>
+</select> 
+{{selectedItem.itemName}}, <br/>
+    {{selectedItem.decription}}
+<ul ng-repeat="code in selectedItem.foodType" >
+     
+      <li style="float:left;decoration:none"><span style="background-color:{{code}} ">&nbsp;&nbsp;</span>&nbsp;</li>
+</ul>
+<br/>
+<div ng-repeat='size in selectedItem.sizes'>
+    <input type='checkbox' />{{size.unit}}, cost {{size.cost}} 
 </div>
+
 <div  ng-model='selectedItem' ng-show='selectedItem'>
   <label >{{selectedItem.itemName}}</label>&nbsp;
   <label >{{selectedItem.costPrice}}</label>
@@ -59,3 +147,5 @@ DATA ENTRY {{level1.name}} {{neta}}
    
 </table>
 </div>
+    </div>
+-->

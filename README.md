@@ -11,12 +11,12 @@ The implementation is intended
    #### Menu  
      let menu=  [
       { 
-        level1Name: string
-        level2: [ // some items do not need 
+        level1Name: string  
+        level2: [  
           { 
-             level2Name: string
-             items: [
-                { 
+             level2Name: string  
+             items: [  
+                {   
                   itemName: string
                   Food type: [..]
                   ingredients: comma separated string - no need for array at this stage *
@@ -25,6 +25,7 @@ The implementation is intended
                     { 
                       unit : string (e.g. 12 inch, 4 pcs, etc)
                       cost price: double,
+                      code: alphanumeric, // this is the equivalent of the sku
                      preptime: ms
                     }
                  ]
